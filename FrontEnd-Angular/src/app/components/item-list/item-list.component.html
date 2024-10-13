@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <h2 class="text-center">Items</h2>
+    <ul class="list-group mb-4">
+      <li *ngFor="let item of items" class="list-group-item d-flex justify-content-between align-items-center">
+        <strong>{{ item.name }}</strong>: {{ item.description }}
+        <button class="btn btn-danger btn-sm" (click)="deleteItem(item.id)">Delete</button>
+      </li>
+    </ul>
+  
+    <h3>Add a New Item</h3>
+    <form (ngSubmit)="addItem()" class="mb-4">
+      <div class="mb-3">
+        <label for="itemName" class="form-label">Name:</label>
+        <input type="text" id="itemName" class="form-control" [(ngModel)]="newItem.name" name="name" required />
+      </div>
+      <div class="mb-3">
+        <label for="itemDescription" class="form-label">Description:</label>
+        <input type="text" id="itemDescription" class="form-control" [(ngModel)]="newItem.description" name="description" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Add Item</button>
+    </form>
+  </div>
+  
